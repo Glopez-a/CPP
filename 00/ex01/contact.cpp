@@ -1,7 +1,7 @@
 # include <iostream>
 # include <string>
 # include <iomanip>
-
+# include <locale>
 
 
 class contact
@@ -23,9 +23,11 @@ private:
 public:
     contact(/* args */);
     ~contact();
-    void    set_contact(int);
-    void    ft_display();
-    void    show_contact();
+    void        set_contact(int);
+    void        ft_display();
+    void        show_contact();
+    std::string check_string();
+    
 };
 
 contact::contact()
@@ -40,7 +42,7 @@ void    contact::set_contact(int i)
 {
     this->index = i;
     std::cout << "Name: ";
-    std::cin >> this->name;
+    this->name = check_string();
     std::cout << "Last name: ";
     std::cin >> this->last_name;
     std::cout << "Nickname: ";
@@ -62,6 +64,31 @@ void    contact::set_contact(int i)
     std::cout << "His darkest secret: ";
     std::cin >> this->dark_secret;
     std::cout << "Contact added to your list :)\n" ;   
+}
+
+std::string contact::check_string()
+{
+    std::string str;
+    bool        run = true;
+
+    while (run)
+    {
+        std::getline(std::cin, str);
+        int i = 0;
+        while (str[i])
+        {
+            if (str[i] < 'a' || str[i] > 'z')
+            {
+                run = true;
+                std::cout << "Thats not a valid string (try only with alphabet characters)\n";
+                break;
+            }
+            else
+                run = false;
+            i++;
+        }
+    }
+    return (str);
 }
 
 void contact::ft_display()
@@ -102,7 +129,7 @@ class phonebook
 {
 private:
     contact contact_list[8];
-    int     amount = 0;
+    int     amount;
 
 public:
     phonebook(/* args */);
@@ -114,6 +141,7 @@ public:
 
 phonebook::phonebook(/* args */)
 {
+    this->amount = 0;
 }
 
 phonebook::~phonebook()
