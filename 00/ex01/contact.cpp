@@ -25,7 +25,7 @@ public:
     ~contact();
     void    set_contact(int);
     void    ft_display();
-
+    void    show_contact();
 };
 
 contact::contact()
@@ -82,6 +82,22 @@ void contact::ft_display()
 
 }
 
+void    contact::show_contact()
+{
+    std::cout << this->name << std::endl;
+    std::cout << this->last_name << std::endl;
+    std::cout << this->nickname << std::endl;
+    std::cout << this->login << std::endl;
+    std::cout << this->postal_code << std::endl;
+    std::cout << this->email << std::endl;
+    std::cout << this->phone_number << std::endl;
+    std::cout << this->birthday << std::endl;
+    std::cout << this->fav_meal << std::endl;
+    std::cout << this->under_color << std::endl;
+    std::cout << this->dark_secret << std::endl;
+}
+
+
 class phonebook
 {
 private:
@@ -119,6 +135,8 @@ void phonebook::add_contact()
 void phonebook::show_agenda()
 {
     int i = 0;
+    int index;
+
     if (this->amount > 0)
     {
         std::cout << "     Index|First name| Last name|  Nickname\n";
@@ -128,6 +146,17 @@ void phonebook::show_agenda()
             i++;
             std::cout << std::endl;
         }
+        std::cout << "Choose one contact: ";
+        std::cin >> index;
+        while (std::cin.fail() || index > this->amount || index < 0)
+        {
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+            std::cout << "Thats not a valid index! Try again...\n";
+            std::cout << "Choose one contact: ";
+            std::cin >> index;
+        }
+        this->contact_list[index].show_contact();
     }
     else
         std::cout << "There are no contacts in your list :(\n";
