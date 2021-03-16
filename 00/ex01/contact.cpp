@@ -27,6 +27,8 @@ public:
     void        ft_display();
     void        show_contact();
     std::string check_string();
+    std::string check_nbr();
+    std::string check_date();
     
 };
 
@@ -44,27 +46,72 @@ void    contact::set_contact(int i)
     std::cout << "Name: ";
     this->name = check_string();
     std::cout << "Last name: ";
-    std::cin >> this->last_name;
+    this->last_name = check_string();
     std::cout << "Nickname: ";
-    std::cin >> this->nickname;
+    this->nickname = check_string();
     std::cout << "Login: ";
-    std::cin >> this->login;
+    this->login = check_string();
     std::cout << "Postal code: ";
-    std::cin >> this->postal_code;
+    this->postal_code = check_nbr();
     std::cout << "Email: ";
-    std::cin >> this->email;
+    std::getline(std::cin, this->email);
     std::cout << "Phone number: ";
-    std::cin >> this->phone_number;
+    this->phone_number = check_nbr();
     std::cout << "Birth day: ";
-    std::cin >> this->birthday;
+    this->birthday = check_date();
     std::cout << "His favourite meal: ";
-    std::cin >> this->fav_meal;
+    this->fav_meal = check_string();
     std::cout << "Underwear color: ";
-    std::cin >> this->under_color;
+    this->under_color = check_string();
     std::cout << "His darkest secret: ";
-    std::cin >> this->dark_secret;
+    std::getline(std::cin, this->dark_secret);
+    
     std::cout << "Contact added to your list :)\n" ;   
 }
+
+std::string contact::check_date()
+{
+    // int         day;
+    // int         month;
+    // int         year;
+    std::string str;
+    //const char  *str1;
+
+    while (true)
+    {
+        std::cout << "Introduce date with the next format: DD/MM/YY\n";
+        getline(std::cin ,str);
+        if (isdigit(str[0]) && isalnum(str[1]) && isalnum(str[3]) && isalnum(str[4]) && isalnum(str[6]) && isalnum(str[7]))
+            break;
+    }
+    return (str);
+}
+
+std::string contact::check_nbr()
+{
+    std::string str;
+    bool        run = true;
+
+    while (run)
+    {
+        std::getline(std::cin, str);
+        int i = 0;
+        while (str[i])
+        {
+            if (str[i] < '0' || str[i] > '9')
+            {
+                run = true;
+                std::cout << "Thats not a valid number\n";
+                break;
+            }
+            else
+                run = false;
+            i++;
+        }
+    }
+    return (str);
+}
+
 
 std::string contact::check_string()
 {
@@ -111,17 +158,20 @@ void contact::ft_display()
 
 void    contact::show_contact()
 {
-    std::cout << this->name << std::endl;
-    std::cout << this->last_name << std::endl;
-    std::cout << this->nickname << std::endl;
-    std::cout << this->login << std::endl;
-    std::cout << this->postal_code << std::endl;
-    std::cout << this->email << std::endl;
-    std::cout << this->phone_number << std::endl;
-    std::cout << this->birthday << std::endl;
-    std::cout << this->fav_meal << std::endl;
-    std::cout << this->under_color << std::endl;
-    std::cout << this->dark_secret << std::endl;
+    if (this->name[0] != 0)
+    {        
+        std::cout << this->name << std::endl;
+        std::cout << this->last_name << std::endl;
+        std::cout << this->nickname << std::endl;
+        std::cout << this->login << std::endl;
+        std::cout << this->postal_code << std::endl;
+        std::cout << this->email << std::endl;
+        std::cout << this->phone_number << std::endl;
+        std::cout << this->birthday << std::endl;
+        std::cout << this->fav_meal << std::endl;
+        std::cout << this->under_color << std::endl;
+        std::cout << this->dark_secret << std::endl;
+    }
 }
 
 
@@ -167,7 +217,8 @@ void phonebook::show_agenda()
 
     if (this->amount > 0)
     {
-        std::cout << "     Index|First name| Last name|  Nickname\n";
+        std::cout << "     Index|First name| Last name|  Nickname|\n";
+        std::cout << "----------|----------|----------|----------|\n";
         while (i < this->amount)
         {
             this->contact_list[i].ft_display();
@@ -176,7 +227,7 @@ void phonebook::show_agenda()
         }
         std::cout << "Choose one contact: ";
         std::cin >> index;
-        while (std::cin.fail() || index > this->amount || index < 0)
+        while (std::cin.fail() || index >= this->amount || index < 0)
         {
             std::cin.clear();
             std::cin.ignore(10000, '\n');
