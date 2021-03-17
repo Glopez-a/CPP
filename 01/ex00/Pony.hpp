@@ -14,5 +14,6 @@ public:
     ~Pony();
     void    fire_ball();
     void    shout();
+
 };
 
