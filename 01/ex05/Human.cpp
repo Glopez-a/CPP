@@ -17,3 +17,4 @@ unsigned long   *Human::identify() const
 {
     return (this->getBrain().identify());
 }
+

@@ -3,12 +3,11 @@
 class Human
 {
 private:
-    Brain const   _brain;
+    Brain   _brain;
 public:
     Human(/* args */);
     ~Human();
     unsigned long   *identify() const;
     Brain const     &getBrain() const;
-
 };
 
