@@ -71,11 +71,7 @@ void    contact::set_contact(int i)
 
 std::string contact::check_date()
 {
-    // int         day;
-    // int         month;
-    // int         year;
     std::string str;
-    //const char  *str1;
 
     while (true)
     {

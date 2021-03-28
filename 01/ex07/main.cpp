@@ -4,6 +4,14 @@
 # include <iomanip>
 # include <fstream>
 
+int ft_strlen(std::string str)
+{
+    int i = 0;
+    while (str[i])
+        i++;
+    return (i);
+}
+
 int ft_error(int i)
 {
     if (i == 1)
@@ -18,7 +26,11 @@ int ft_error(int i)
 int main(int argc, char **argv)
 {
     std::string     str;
+    std::string     str1 = argv[2];
     std::fstream    my_file;
+    std::ofstream   replace;
+    std::string     file_name;
+    size_t          index;
     my_file.open(argv[1]);
     if (argc != 4)
         return (ft_error(1));
@@ -26,7 +38,19 @@ int main(int argc, char **argv)
         return (ft_error(2));
     else if (!my_file)
         return (ft_error(2));
-    std::getline(my_file, str);
-    std::cout << str << std::endl;
-    my_file << "hola que tal";
+    file_name = argv[1] + (std::string)".replace";
+    replace.open(file_name);
+    while (std::getline(my_file, str))
+    {
+        while (true)
+        {
+            index = 0;
+            index = str.find(argv[2], index);
+            if (index == std::string::npos)
+                break;
+            str.replace(index, ft_strlen(argv[2]), argv[3]);
+            index += ft_strlen(argv[3]);
+        }
+        replace << str << std::endl;
+    }
 }
