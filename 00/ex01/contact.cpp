@@ -29,7 +29,7 @@ public:
     std::string check_string();
     std::string check_nbr();
     std::string check_date();
-    
+    std::string check_email();
 };
 
 contact::contact()
@@ -53,8 +53,7 @@ void    contact::set_contact(int i)
     this->login = check_string();
     std::cout << "Postal code: ";
     this->postal_code = check_nbr();
-    std::cout << "Email: ";
-    std::getline(std::cin, this->email);
+    this->email = check_email();
     std::cout << "Phone number: ";
     this->phone_number = check_nbr();
     std::cout << "Birth day: ";
@@ -69,16 +68,50 @@ void    contact::set_contact(int i)
     std::cout << "Contact added to your list :)\n" ;   
 }
 
+std::string contact::check_email()
+{
+    std::string str;
+    size_t      i = 0;
+    bool        a = true;
+
+    while (a)
+    {
+        std::cout << "Introduce an email: ";
+        getline(std::cin ,str);
+        while (str[i])
+        {
+            if (str[i] == '@')
+                a = false;
+            i++;
+        }
+        if (a)
+            std::cout << "Thats not a valid email\n";
+    }
+    return (str);
+}
+
 std::string contact::check_date()
 {
     std::string str;
-
-    while (true)
+    bool    go = true;
+    size_t     i = 0;
+    while (go)
     {
         std::cout << "Introduce date with the next format: DD/MM/YY\n";
         getline(std::cin ,str);
-        if (isdigit(str[0]) && isalnum(str[1]) && isalnum(str[3]) && isalnum(str[4]) && isalnum(str[6]) && isalnum(str[7]))
-            break;
+        if (isdigit(str[0]) && isdigit(str[1]) && isdigit(str[3]) && isdigit(str[4]) && isdigit(str[6]) && isdigit(str[7]))
+        {
+            i = (size_t)str[1] - 48 + 10 * ((size_t)str[0] - 48);
+            if ((i <= 31) && i >= 0)
+            {
+                i = (size_t)str[4] - 48 + 10 * ((size_t)str[3] - 48);
+
+                if ((i <= 12) && i >= 0)
+                    go = false;
+            }
+        }
+        if (go)
+            std::cout << "Thats not a valid date\n";
     }
     return (str);
 }
