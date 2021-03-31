@@ -3,25 +3,25 @@
 
 # include <cmath>
 # include <iostream>
-# include <istream>
 # include <string>
 
 class Fixed
 {
 private:
-    int value;
-    static const int    bits = 8;
+    int _value;
+    static const int    _bits = 8;
 public:
     Fixed(/* args */);
-    Fixed(int const);
+    Fixed(int const value);
+    Fixed(float const value);
     Fixed(Fixed const &other);
     ~Fixed();
     Fixed   &operator=(Fixed const &other);
-    Fixed   &operator<<(Fixed const &other);
     int     getRawBits() const;
     void    setRawBits(int const raw_bits);
     float   toFloat( void ) const;
     int     toInt( void ) const;
 };
 
+std::ostream    &operator<<(std::ostream &out, Fixed const &value);
 #endif
