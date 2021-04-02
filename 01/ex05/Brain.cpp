@@ -8,8 +8,9 @@ Brain::~Brain()
 {
 }
 
-unsigned long   *Brain::identify() const
+std::string   Brain::identify()
 {
-    return ((unsigned long *)this);
+    std::stringstream address;
+    address << this;
+    return (address.str());
 }
-

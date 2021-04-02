@@ -11,5 +11,5 @@ private:
 public:
     Brain(/* args */);
     ~Brain();
-    unsigned long   *identify() const;
+    std::string   identify();
 };

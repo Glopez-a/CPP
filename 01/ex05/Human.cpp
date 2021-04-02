@@ -8,12 +8,12 @@ Human::~Human()
 {
 }
 
-Brain const   &Human::getBrain() const
+Brain const &Human::getBrain()
 {
     return (this->_brain);
 }
 
-unsigned long   *Human::identify() const
+std::string Human::identify()
 {
     return (this->getBrain().identify());
 }
