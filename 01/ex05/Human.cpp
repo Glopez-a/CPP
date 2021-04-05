@@ -17,3 +17,4 @@ std::string Human::identify()
 {
     return (this->getBrain().identify());
 }
+

@@ -1,11 +1,11 @@
-SRCS			= Brain.cpp Human.cpp main.cpp
+SRCS			= main.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= human
+NAME			= replace
 
 all:			$(NAME)
 

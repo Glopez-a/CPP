@@ -7,9 +7,10 @@
 class Brain
 {
 private:
-    //std::string _name;
+    int _size;
 public:
     Brain(/* args */);
     ~Brain();
-    std::string   identify();
+    unsigned long   *identify() const;
+    void            set_size(int size);
 };
