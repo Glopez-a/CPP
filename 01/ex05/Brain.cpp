@@ -8,9 +8,11 @@ Brain::~Brain()
 {
 }
 
-unsigned long   *Brain::identify() const
+std::string Brain::identify() const
 {
-    return ((unsigned long *)this);
+    std::stringstream   address;
+    address << this;
+    return (address.str());
 }
 void            Brain::set_size(int size)
 {

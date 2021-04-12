@@ -1,5 +1,6 @@
 # include <iostream>
 # include <string>
+# include <sstream>
 # include <iomanip>
 # include <unistd.h>
 #include <sys/time.h>
@@ -11,6 +12,6 @@ private:
 public:
     Brain(/* args */);
     ~Brain();
-    unsigned long   *identify() const;
+    std::string     identify() const;
     void            set_size(int size);
 };

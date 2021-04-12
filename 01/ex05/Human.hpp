@@ -7,12 +7,7 @@ private:
 public:
     Human(/* args */);
     ~Human();
-<<<<<<< HEAD
-    std::string identify();
-    Brain const &getBrain();
+    std::string identify() const;
+    Brain const &getBrain() const;
 
-=======
-    unsigned long   *identify() const;
-    Brain const     &getBrain() const;
->>>>>>> 85bef4e75e8a7f8039ae17f158475c3e8b34d745
 };
