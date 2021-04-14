@@ -1,14 +1,12 @@
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include <iostream>
 # include <string>
 # include <sys/time.h>
 # include <unistd.h>
 
-
-
-class   FragTrap
+class ScavTrap
 {
 private:
     std::string _name;
@@ -20,24 +18,23 @@ private:
     int         _melee_attack;
     int         _ranged_attack;
     int         _armor_damage_red;
-    static std::string _random_attacks[5];
-    static std::string _at1;
-    static std::string _at2;
-    static std::string _at3;
-    static std::string _at4;
-    static std::string _at5;
-
+    static std::string _random_challengs[5];
+    static std::string _challengs1;
+    static std::string _challengs2;
+    static std::string _challengs3;
+    static std::string _challengs4;
+    static std::string _challengs5;
 
 public:
-    FragTrap(std::string name);
-    FragTrap(FragTrap const &other);
-    ~FragTrap();
-    FragTrap   &operator=(FragTrap const &other);
+    ScavTrap(std::string name);
+    ScavTrap(ScavTrap const &other);
+    ~ScavTrap();
+    ScavTrap   &operator=(ScavTrap const &other);
     void    rangedAttack(std::string const &target);
     void    meleeAttack(std::string const &target);
     void    takeDamage(unsigned int amount);
     void    beRepaired(unsigned int amount);
-    void    vaulthunter_dot_exe(std::string const &target);
+    void    challengeNewcomer(void);
 };
 
 #endif

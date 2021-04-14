@@ -17,14 +17,15 @@ std::string FragTrap::_random_attacks[5] = {
 FragTrap::FragTrap(std::string name): _name(name)
 {
     std::cout << name << " has being created, prepared to fight!\n";
+
     this->_hit_points = 100;
     this->_max_hit_points = 100;
     this->_energy_points = 100;
     this->_max_energy_points = 100;
     this->_level = 1;
-    this->_melee_attack = 30;
-    this->_ranged_attack = 20;
-    this->_armor_damage_red = 5;
+    this->_melee_attack = 20;
+    this->_ranged_attack = 15;
+    this->_armor_damage_red = 3;
 }
 
 FragTrap::FragTrap(FragTrap const &other): _name(other._name)

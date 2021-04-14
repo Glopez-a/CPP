@@ -14,20 +14,16 @@ std::string FragTrap::_random_attacks[5] = {
     FragTrap::_at5
 };
 
-FragTrap::FragTrap(std::string name): _name(name)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
     std::cout << name << " has being created, prepared to fight!\n";
-    this->_hit_points = 100;
-    this->_max_hit_points = 100;
-    this->_energy_points = 100;
-    this->_max_energy_points = 100;
-    this->_level = 1;
-    this->_melee_attack = 30;
-    this->_ranged_attack = 20;
-    this->_armor_damage_red = 5;
+
+    this->_melee_attack = 20;
+    this->_ranged_attack = 15;
+    this->_armor_damage_red = 3;
 }
 
-FragTrap::FragTrap(FragTrap const &other): _name(other._name)
+FragTrap::FragTrap(FragTrap const &other): ClapTrap(other._name)
 {
     *this = other;
 }
@@ -62,46 +58,6 @@ void    FragTrap::meleeAttack(std::string const &target)
 {
     std::cout << this->_name << " attacks " << target << " at melee, causing " << 
     this->_melee_attack << " points of damage!\n";
-}
-
-void    FragTrap::takeDamage(unsigned int amount)
-{
-    int i = 0;
-
-    if (amount < 0)
-        std::cout << "You cant take a negative amount of damage!\n";
-    else
-    {
-        std::cout << this->_name << " recieved " << amount << " points of damage..\n";
-        while (i < (int)amount && this->_armor_damage_red > 0)
-        {
-            this->_armor_damage_red--;
-            i++;
-        }
-        this->_armor_damage_red = 5;
-        std::cout << this->_name << " stop " << i << " points of damage with his armor\n";
-        while (i < (int)amount && this->_hit_points > 0)
-        {
-            this->_hit_points--;
-            i++;
-        }
-    }
-    std::cout << this->_name << " has " << this->_hit_points << " points of live\n";
-}
-
-
-void    FragTrap::beRepaired(unsigned int amount)
-{
-    int i = 0;
-
-    std::cout << this->_name << " recieved " << amount << " points of life..\n";
-    while (amount > 0 && this->_hit_points < this->_max_hit_points)
-    {
-        this->_hit_points++;
-        amount--;
-        i++;
-    }
-    std::cout << "Frag has " << this->_hit_points << " points of live\n";
 }
 
 void    FragTrap::vaulthunter_dot_exe(std::string const &target)

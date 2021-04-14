@@ -99,7 +99,7 @@ std::string contact::check_date()
     {
         std::cout << "Introduce date with the next format: DD/MM/YY\n";
         getline(std::cin ,str);
-        if (isdigit(str[0]) && isdigit(str[1]) && isdigit(str[3]) && isdigit(str[4]) && isdigit(str[6]) && isdigit(str[7]))
+        if (isdigit(str[0]) && isdigit(str[1]) && str[2] == '/' && isdigit(str[3]) && isdigit(str[4]) && str[2] == '/' && isdigit(str[6]) && isdigit(str[7]) && str[8] == 0)
         {
             i = (size_t)str[1] - 48 + 10 * ((size_t)str[0] - 48);
             if ((i <= 31) && i >= 0)

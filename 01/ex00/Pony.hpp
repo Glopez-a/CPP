@@ -7,7 +7,6 @@ class Pony
 private:
     std::string name;
     std::string colour_hair;
-    int         size;
 
 public:
     Pony(std::string);
