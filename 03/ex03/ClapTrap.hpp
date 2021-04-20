@@ -22,7 +22,7 @@ protected:
 public:
     ClapTrap(std::string name);
     ClapTrap(ClapTrap const &other);
-    ~ClapTrap();
+    virtual ~ClapTrap();
     ClapTrap   &operator=(ClapTrap const &other);
     void        takeDamage(unsigned int amount);
     void        beRepaired(unsigned int amount);

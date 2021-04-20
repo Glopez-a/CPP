@@ -7,7 +7,6 @@ int main()
 	FragTrap frag("FR4G");
 	ScavTrap scav("SC4V");
 
-
 	frag.vaulthunter_dot_exe("CL4P-TP");
 	frag.meleeAttack("CL4P-TP");
 	frag.rangedAttack("CL4P-TP");
@@ -23,7 +22,6 @@ int main()
 
 	std::cout << "---" << std::endl;
 
-	scav.challengeNewcomer();
 	scav.meleeAttack("CL4P-TP");
 	scav.rangedAttack("CL4P-TP");
 	scav.takeDamage(24);
@@ -31,7 +29,6 @@ int main()
 	scav.takeDamage(42);
 	scav.takeDamage(100);
 	scav.beRepaired(125);
-	scav.challengeNewcomer();
 	scav.challengeNewcomer();
 	scav.challengeNewcomer();
 	scav.challengeNewcomer();

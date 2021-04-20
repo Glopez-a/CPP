@@ -1,6 +1,6 @@
 # include "Sorcerer.hpp"
 
-Sorcerer::Sorcerer(std::string name, std::string tittle): _name(name), _tittle(tittle)
+Sorcerer::Sorcerer(std::string const &name, std::string const &tittle): _name(name), _tittle(tittle)
 {
     std::cout << this->_name << ", " << this->_tittle << ", is born!\n";
 }

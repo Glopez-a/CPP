@@ -3,7 +3,7 @@
 
 # include "ClapTrap.hpp"
 
-class   NinjaTrap: virtual public ClapTrap
+class   NinjaTrap: public ClapTrap
 {
 private:
 	NinjaTrap();

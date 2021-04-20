@@ -5,9 +5,9 @@
 class Peon: public Victim
 {
 private:
-    std::string _name;
+    Peon();
 public:
-    Peon(std::string name);
+    Peon(std::string const &name);
     Peon(Peon const &other);
     ~Peon();
     Peon      &operator=(Peon const &other);

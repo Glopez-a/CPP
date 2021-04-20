@@ -68,6 +68,12 @@ void    ScavTrap::challengeNewcomer()
     gettimeofday(&time,NULL);
     srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
     int random = rand() % 5;
-    std::cout << ScavTrap::_random_challengs[random] << std::endl;
+    if (this->_energy_points >= 25)
+    {
+        this->_energy_points -= 25;
+        std::cout << ScavTrap::_random_challengs[random] << std::endl;
+    }
+    else
+        std::cout << "Not enought energy for " << this->_name << "\n";
     usleep(1045);
 }
