@@ -28,7 +28,7 @@ Fixed::Fixed(float const value)
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called:\n";
+    std::cout << "Destructor called\n";
 }
 
 Fixed   &Fixed::operator=(Fixed const &other)
