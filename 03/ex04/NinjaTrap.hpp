@@ -3,11 +3,8 @@
 
 # include "ClapTrap.hpp"
 
-class   NinjaTrap: public ClapTrap
+class   NinjaTrap: public virtual ClapTrap
 {
-private:
-	NinjaTrap();
-
 protected:
     static std::string _random_attacks[5];
     static std::string _attack1;
