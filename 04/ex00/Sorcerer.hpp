@@ -10,7 +10,7 @@ private:
     std::string _name;
     std::string _tittle;
 public:
-    Sorcerer(std::string name, std::string tittle);
+    Sorcerer(std::string const &name, std::string const &tittle);
     Sorcerer(Sorcerer const &other);
     ~Sorcerer();
     Sorcerer    &operator=(Sorcerer const &other);

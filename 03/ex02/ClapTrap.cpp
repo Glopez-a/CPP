@@ -5,8 +5,8 @@ ClapTrap::ClapTrap(std::string name): _name(name)
     std::cout << name << " has being created, this is gonna be good!\n";
     this->_hit_points = 100;
     this->_max_hit_points = 100;
-    this->_energy_points = 0;
-    this->_max_energy_points = 0;
+    this->_energy_points = 100;
+    this->_max_energy_points = 100;
     this->_level = 1;
     this->_melee_attack = 0;
     this->_ranged_attack = 0;

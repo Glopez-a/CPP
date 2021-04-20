@@ -1,6 +1,6 @@
 # include "SuperTrap.hpp"
 
-SuperTrap::SuperTrap(std::string name): ClapTrap(name), FragTrap(name), NinjaTrap(name)
+SuperTrap::SuperTrap(std::string const &name): ClapTrap(name), FragTrap(name), NinjaTrap(name)
 {
     std::cout << name << " , hello babys!\n";
     this->_hit_points = this->FragTrap::_hit_points;
@@ -10,10 +10,10 @@ SuperTrap::SuperTrap(std::string name): ClapTrap(name), FragTrap(name), NinjaTra
     this->_melee_attack = this->NinjaTrap::_melee_attack;
     this->_ranged_attack = this->FragTrap::_ranged_attack;
     this->_armor_damage_red = this->FragTrap::_armor_damage_red;
+    std::cout << this->_hit_points << std::endl;
 }
 
-SuperTrap::SuperTrap(SuperTrap const &other): ClapTrap(other._name), FragTrap(other._name), NinjaTrap(other._name)
-{
+SuperTrap::SuperTrap(SuperTrap const &other): ClapTrap(other._name)
     *this = other;
 }
 
@@ -44,6 +44,6 @@ void    SuperTrap::rangedAttack(std::string const &target)
 
 void    SuperTrap::meleeAttack(std::string const &target)
 {
-    NinjaTrap::rangedAttack(target);
+    NinjaTrap::meleeAttack(target);
 }
 

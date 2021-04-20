@@ -18,9 +18,9 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
     std::cout << name << " has being created, prepared to fight!\n";
 
-    this->_melee_attack = 20;
-    this->_ranged_attack = 15;
-    this->_armor_damage_red = 3;
+    this->_melee_attack = 30;
+    this->_ranged_attack = 20;
+    this->_armor_damage_red = 5;
 }
 
 FragTrap::FragTrap(FragTrap const &other): ClapTrap(other._name)

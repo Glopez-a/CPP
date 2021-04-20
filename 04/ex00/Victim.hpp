@@ -6,10 +6,10 @@
 
 class Victim
 {
-private:
+protected:
     std::string _name;
 public:
-    Victim(std::string name);
+    Victim(std::string const &name);
     Victim(Victim const &other);
     ~Victim();
     Victim      &operator=(Victim const &other);

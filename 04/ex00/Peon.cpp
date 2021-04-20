@@ -1,8 +1,8 @@
 # include "Peon.hpp"
 
-Peon::Peon(std::string name): Victim(name)
+Peon::Peon(std::string const &name): Victim(name)
 {
-    std::cout << "Zog zog.\n";
+    std::cout << this->_name <<"Zog zog.\n";
 }
 
 Peon::Peon(Peon const &other): Victim(other._name)

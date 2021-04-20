@@ -41,7 +41,6 @@ int main(void)
 
 	ClapTrap clap("Clapi");
 	NinjaTrap *ninja = new NinjaTrap("El juanri");
-	ninja->ninjaShoebox(*ninja);
 	ninja->meleeAttack("El chico malo");
 	ninja->rangedAttack("El chico malo");
 	ninja->takeDamage(24);
@@ -49,15 +48,12 @@ int main(void)
 	ninja->takeDamage(42);
 	ninja->takeDamage(100);
 	ninja->beRepaired(125);
+	ninja->ninjaShoebox(*ninja);
 	ninja->ninjaShoebox(*frag);
 	ninja->ninjaShoebox(*frag);
 	ninja->ninjaShoebox(clap);
 	ninja->ninjaShoebox(*frag);
 	ninja->ninjaShoebox(*scav);
-	ninja->ninjaShoebox(*scav);
-	ninja->ninjaShoebox(*scav);
-	ninja->ninjaShoebox(*scav);
-	ninja->ninjaShoebox(clap);
 
 	std::cout << "---" << std::endl;
 
