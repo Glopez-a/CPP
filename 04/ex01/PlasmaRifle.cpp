@@ -3,7 +3,6 @@
 PlasmaRifle::PlasmaRifle():
     AWeapon("Plasma Rifle", 21, 5)
 {
-    std::cout << this->_name << " plasmarifle created\n";
 }
 
 PlasmaRifle::PlasmaRifle(PlasmaRifle const &other):
@@ -15,7 +14,6 @@ PlasmaRifle::PlasmaRifle(PlasmaRifle const &other):
 
 PlasmaRifle::~PlasmaRifle()
 {
-    std::cout << this->_name << " plasmarifle destructed\n";
 }
 
 PlasmaRifle &PlasmaRifle::operator=(PlasmaRifle const &plasmarifle)

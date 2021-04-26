@@ -18,6 +18,7 @@ public:
     int getAPCost(void) const;
     int getDamage(void) const;
     virtual void attack() const = 0;
+    std::string getName(void) const;
 };
 
 

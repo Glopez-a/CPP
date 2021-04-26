@@ -27,8 +27,12 @@ int Enemy::getHP(void) const
     return (this->_hp);
 }
 
+std::string Enemy::getType() const
+{
+    return (this->_type);
+}
+
 void    Enemy::takeDamage(int damage)
 {
     this->_hp -= damage;
 }
-

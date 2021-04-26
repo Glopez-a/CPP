@@ -15,6 +15,8 @@ public:
     ~Enemy();
     Enemy &operator=(Enemy const &Enemy);
     int getHP(void) const;
+    std::string getType() const;
+
     virtual void takeDamage(int damage);
 };
 

@@ -3,12 +3,16 @@
 PowerFist::PowerFist():
     AWeapon("Power Fist", 50, 8)
 {
-    std::cout << this->_name << " PowerFist created\n";
 }
+
+PowerFist::PowerFist(PowerFist const &powerfist):
+    AWeapon("Power Fist", 50, 8)
+{
+}
+
 
 PowerFist::~PowerFist()
 {
-    std::cout << this->_name << " PowerFist destructed\n";
 }
 
 PowerFist &PowerFist::operator=(PowerFist const &powerfirst)
