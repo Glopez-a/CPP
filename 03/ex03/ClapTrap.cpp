@@ -47,12 +47,8 @@ void    ClapTrap::takeDamage(unsigned int amount)
     else
     {
         std::cout << this->_name << " recieved " << amount << " points of damage..\n";
-        while (i < (int)amount && this->_armor_damage_red > 0)
-        {
-            this->_armor_damage_red--;
+        while (i < (int)amount && i < this->_armor_damage_red)
             i++;
-        }
-        this->_armor_damage_red = 5;
         std::cout << this->_name << " stop " << i << " points of damage with his armor\n";
         while (i < (int)amount && this->_hit_points > 0)
         {
@@ -62,7 +58,6 @@ void    ClapTrap::takeDamage(unsigned int amount)
     }
     std::cout << this->_name << " has " << this->_hit_points << " points of live\n";
 }
-
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
