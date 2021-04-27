@@ -3,11 +3,13 @@
 
 #include <string>
 #include <iostream>
+class AMateria;
 #include "ICharacter.hpp"
 
 class AMateria
 {
 private:
+    AMateria();
     unsigned int    _xp;
     std::string     _type;
 public:
@@ -18,8 +20,8 @@ public:
     AMateria   &operator=(AMateria const &other);
     std::string const & getType() const;
     unsigned int getXP() const;
-    virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+    virtual AMateria *clone(void) const = 0;
+    virtual void use(ICharacter &target) = 0;
     void    reset();
     void    progres();
 

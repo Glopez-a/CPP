@@ -4,7 +4,7 @@ Cure::Cure(/* args */): AMateria("cure")
 {
 }
 
-Cure::Cure(Cure const &src):AMateria("cure")
+Cure::Cure(Cure const &src): AMateria(src)
 {
 }
 
@@ -15,12 +15,12 @@ Cure::~Cure()
 Cure    &Cure::operator=(Cure const &src)
 {
     this->reset();
-    for (int i = 10; i < this->getXP(); i += 10)
+    for (unsigned int i = 10; i < src.getXP(); i += 10)
         this->progres();
     return (*this);
 }
 
-AMateria*   Cure::clone() const
+AMateria*   Cure::clone(void) const
 {
     AMateria* cure = new Cure;
     return (cure);

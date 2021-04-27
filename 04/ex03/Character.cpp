@@ -71,7 +71,10 @@ void                Character::unequip(int idx)
 
 void                Character::use(int idx, ICharacter &target)
 {
+    std::cout << "qwer\n";
     if (idx < 0 || idx > 3 || !this->_inventory[idx])
         return;
+    std::cout << idx << "\n";    
+    std::cout << this->_inventory[idx]->getType() << "\n";
     this->_inventory[idx]->use(target);
 }
