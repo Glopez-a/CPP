@@ -4,7 +4,7 @@ MateriaSource::MateriaSource(/* args */)
 {
     for (int i = 0; i < 4; i++)
     {
-        this->_materia[i] = 0;
+        this->_materia[i] = NULL;
     }
 }
 

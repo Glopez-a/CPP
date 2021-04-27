@@ -3,6 +3,8 @@
 Character::Character(std::string name):
     _materias(0), _name(name)
 {
+    for (int i = 0; i < 4; i++)
+        this->_inventory[i] = 0;
 }
 
 Character::Character(Character const &src)
@@ -71,10 +73,7 @@ void                Character::unequip(int idx)
 
 void                Character::use(int idx, ICharacter &target)
 {
-    std::cout << "qwer\n";
     if (idx < 0 || idx > 3 || !this->_inventory[idx])
         return;
-    std::cout << idx << "\n";    
-    std::cout << this->_inventory[idx]->getType() << "\n";
     this->_inventory[idx]->use(target);
 }

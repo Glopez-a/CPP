@@ -1,6 +1,6 @@
 #include "Ice.hpp"
 
-Ice::Ice(/* args */): AMateria("cure")
+Ice::Ice(/* args */): AMateria("ice")
 {
 }
 
@@ -28,6 +28,5 @@ AMateria*   Ice::clone() const
 
 void        Ice::use(ICharacter &target)
 {
-    std::cout << "adios\n";
     std::cout << "* heals " << target.getName() << " wounds *\n";
 }
