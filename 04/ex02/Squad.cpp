@@ -36,7 +36,6 @@ int     Squad::getCount() const
 
 ISpaceMarine    *Squad::getUnit(int i) const
 {
-    std::cout << _units << std::endl;
     if (i < 0 || this->_units == 0 || i >= this->_units)
         return (nullptr);
     return (this->_marines[i]);
