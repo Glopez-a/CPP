@@ -12,7 +12,7 @@ private:
 public:
     Enemy(int hp, std::string const &type);
     Enemy(Enemy const &Enemy);
-    ~Enemy();
+    virtual ~Enemy();
     Enemy &operator=(Enemy const &Enemy);
     int getHP(void) const;
     std::string getType() const;
