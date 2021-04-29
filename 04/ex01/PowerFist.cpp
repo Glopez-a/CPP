@@ -8,6 +8,7 @@ PowerFist::PowerFist():
 PowerFist::PowerFist(PowerFist const &powerfist):
     AWeapon("Power Fist", 50, 8)
 {
+    (void)powerfist;
 }
 
 

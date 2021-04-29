@@ -48,6 +48,11 @@ void                Character::equip(AMateria *m)
         return;
     for (int i = 0; i < 4; i++)
     {
+        if (m == this->_inventory[i])
+            return;
+    }
+    for (int i = 0; i < 4; i++)
+    {
         if (!this->_inventory[i])
         {
             this->_inventory[i] = m;
@@ -65,7 +70,10 @@ void                Character::unequip(int idx)
     while (idx < 4)
     {
         if (!this->_inventory[i + 1])
+        {
+            this->_inventory[i] = NULL;
             return;
+        }
         this->_inventory[i] = this->_inventory[i + 1];
         i++;
     }
