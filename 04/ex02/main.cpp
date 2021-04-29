@@ -20,6 +20,4 @@ int main()
     argg->getUnit(0);
     delete vlc;
     return 0;
-
-
 }
