@@ -9,5 +9,4 @@ public:
     ~Human();
     std::string identify() const;
     Brain const &getBrain() const;
-
 };

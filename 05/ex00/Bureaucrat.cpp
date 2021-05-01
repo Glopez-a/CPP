@@ -1,25 +1,69 @@
-#include "Bureaucrat.hpp"
+# include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade):
     _name(name)
 {
-    try
-    {
-        if (grade < 1)
-            throw 1;
-        if (grade > 150)
-            throw 2;
-        _grade = grade;
-    }
-    catch (int ex)
-    {
-        if (ex == 1)
-            Bureaucrat::GradeTooLowException();
-        if (ex == 2)
-            Bureaucrat::GradeTooHighException();
-    }
+    if (grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    if (grade > 150)
+        throw Bureaucrat::GradeTooLowException();
+    _grade = grade;
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat const &other)
+{
+    *this = other;
 }
 
 Bureaucrat::~Bureaucrat()
 {
+}
+
+Bureaucrat  &Bureaucrat::operator=(Bureaucrat const &other)
+{
+    _name = other._name;
+    _grade = other._grade;
+    return (*this);
+}
+
+std::string const   &Bureaucrat::getName() const
+{
+    return (_name);
+}
+
+int         Bureaucrat::getGrade() const
+{
+    return (_grade);
+}
+
+void        Bureaucrat::increment()
+{
+    if (_grade < 2)
+        throw Bureaucrat::GradeTooHighException();
+    else
+        _grade--;
+}
+
+void        Bureaucrat::decrement()
+{
+    if (_grade > 149)
+        throw Bureaucrat::GradeTooLowException();
+    else
+        _grade++;
+}
+
+const char  *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return ("Grade too low");
+}
+
+const char  *Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return ("Grade too high");
+}
+
+std::ostream    &operator<<(std::ostream &out, Bureaucrat const &src)
+{
+    out << src.getName() << ", bureaucrat grade " << src.getGrade();
+    return (out);
 }
