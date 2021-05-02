@@ -45,6 +45,11 @@ const char  *ShrubberyCreationForm::CantOpenFileException::what() const throw()
     return ("Cant open file");
 }
 
+const char* ShrubberyCreationForm::WriteException::what() const throw()
+{
+	return "ShrubberyCreationFormException: Error while writing to the file";
+}
+
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	Form::execute(executor);
@@ -53,5 +58,10 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	if (!my_file)
 		throw CantOpenFileException();
 	my_file << _tree;
-
+	if (my_file.bad())
+	{
+		my_file.close();
+		throw WriteException();
+	}
+	my_file.close();
 }
