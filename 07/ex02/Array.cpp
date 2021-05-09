@@ -1,4 +1,4 @@
-#include "Array.hpp"
+#include "Array.tpp"
 
 template <typename T>
 Array<T>::Array(/* args */)
@@ -11,6 +11,7 @@ template <typename T>
 Array<T>::Array(size_t n)
 {
 	_array = new T[n];
+	_len = n;
 }
 
 template <typename T>
@@ -29,38 +30,38 @@ Array<T>::Array(Array<T> const &src):
 }
 
 template <typename T>
-T	&Array<T>::operator=(Array<T> const &src)
+Array<T>	&Array<T>::operator=(Array<T> const &src)
 {
-	int i = 0;
+	unsigned long i = 0;
 	if (src._len)
 	{
 		if (_len)
-		{
-			while (_array[i])
-				delete (_array[i++]);
-		}
+			delete (_array);
 		_array = new T[src._len + 1];
 		i = 0;
-		while (src._array[i])
-			_array[i] = src._array[i++];
+		while (i < src._len)
+		{
+			_array[i] = src._array[i];
+			i++;
+		}
 		_array[i] = 0;
+		_len = src._len;
 	}
 	else
 	{
 		if (_len)
-		{
-			while (_array[i])
-				delete (_array[i++]);
-		}
+			delete (_array);
 		_len = 0;
 		_array = (nullptr);
 	}
+	return (*this);
 }
+
 
 template<typename T>
 const char* Array<T>::InacessibleMemoryException::what() const throw()
 {
-	return ("ArrayException: index too big");
+	return ("ArrayException: element is out of the limits");
 }
 
 template <typename T>
@@ -80,5 +81,7 @@ size_t	Array<T>::size() const
 template <typename T>
 Array<T>::~Array()
 {
+	if (_len)
+		delete[] _array;
 }
 
