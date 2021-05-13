@@ -4,6 +4,7 @@
 
 int main(void)
 {
+	srand(time(NULL));
 	try
 	{
 		Bureaucrat Juan("Juan", 136);

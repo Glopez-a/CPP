@@ -16,7 +16,7 @@ int	main(void)
 	{
 		Form		formu1("formulario1", 24, 1);
 		std::cout << formu1 << std::endl;
-		Bureaucrat	mike("Mike", 50);
+		Bureaucrat	mike("Mike", 29);
 		formu1.beSigned(mike);
 		std::cout << formu1 << std::endl;
 	}

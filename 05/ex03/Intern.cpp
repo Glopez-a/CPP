@@ -10,7 +10,7 @@ Intern::~Intern()
 
 const char  *Intern::FormNotExistException::what() const throw()
 {
-    return ("Grade too low");
+    return ("Not a valid name");
 }
 
 Form	*Intern::makeForm(std::string s1, std::string s2)

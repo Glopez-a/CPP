@@ -15,6 +15,7 @@ int main()
         std::cout << Pablo << std::endl;
 	    Pablo.decrement();
 	    std::cout << Pablo << std::endl;
+        std::cout << "hola\n";
     }
     catch(const std::exception& e)
     {
