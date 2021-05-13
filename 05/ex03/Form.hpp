@@ -18,7 +18,7 @@ private:
 public:
     Form(std::string name, int grade_sign, int grade_exec);
     Form(Form const &other);
-    ~Form();
+    virtual ~Form();
     Form &operator=(Form const &other);
     class  GradeTooLowException: public std::exception
     {

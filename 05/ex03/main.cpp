@@ -14,7 +14,7 @@ int main(void)
 		Form *form = Juan.makeForm("robotomy request", "asdffg");
 		Pedro.signForm(*form);
 		Pedro.executeForm(*form);
-		
+		delete form;
 	}
 	catch (std::exception & e)
 	{
@@ -27,7 +27,7 @@ int main(void)
 		Form *form = Agapito.makeForm("shrubbery creation", "asdffg");
 		David.signForm(*form);
 		David.executeForm(*form);
-		
+		delete form;
 	}
 	catch (std::exception & e)
 	{
@@ -40,7 +40,7 @@ int main(void)
 		Form *form = jose.makeForm("presidential pardon", "asdffg");
 		Manuel.signForm(*form);
 		Manuel.executeForm(*form);
-		
+		delete form;
 	}
 	catch (std::exception & e)
 	{
