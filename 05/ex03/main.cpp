@@ -11,7 +11,7 @@ int main(void)
 	{
 		Bureaucrat Pedro("Pedro", 10);
 		Intern Juan;
-		Form *form = Juan.makeForm("robotomysdf request", "asdffg");
+		Form *form = Juan.makeForm("robotomy request", "asdffg");
 		Pedro.signForm(*form);
 		Pedro.executeForm(*form);
 		delete form;

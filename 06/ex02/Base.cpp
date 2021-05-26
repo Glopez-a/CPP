@@ -1,5 +1,9 @@
 #include "Base.hpp"
 
+Base::~Base()
+{
+}
+
 Base	*generate()
 {
 	int random = (rand() % 3);

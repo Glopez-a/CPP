@@ -8,7 +8,9 @@
 class Intern
 {
 private:
-	/* data */
+	Form *	makeShrub(std::string target);
+	Form *	makeRobot(std::string target);
+	Form *	makePres(std::string target);
 public:
 	Intern(/* args */);
 	~Intern();
