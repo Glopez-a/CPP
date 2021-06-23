@@ -18,6 +18,8 @@ public:
 	void	addNumber(int i);
 	int		shortestSpan();
 	int		longestSpan();
+	std::vector<int>	getVec() const;
+
 };
 
 

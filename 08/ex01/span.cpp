@@ -53,3 +53,8 @@ int		span::longestSpan()
 	std::sort(vec.begin(), vec.end());
 	return (*(vec.end() - 1) - *vec.begin());
 }
+
+std::vector<int>	span::getVec() const
+{
+	return (_vec);
+}
