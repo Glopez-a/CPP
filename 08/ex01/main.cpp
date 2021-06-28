@@ -1,5 +1,8 @@
 #include "span.hpp"
+<<<<<<< HEAD
 #include <list>
+=======
+>>>>>>> ad638fc452b64467d9665cd5ae0f92018e7cc5f7
 
 int	main(void)
 {

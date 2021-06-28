@@ -43,7 +43,6 @@ int	main()
 	}
 	std::stack<int> s(mstack);
 
-
 	std::cout << "------ LIST ------\n";
 
 	lst.push_back(5);
