@@ -84,7 +84,7 @@ std::ostream    &operator<<(std::ostream &out, Form const &src)
         out << src.getName() << " form it is signed, form sign grade "
         << src.getSignedGrade() << ", form execution grade " << src.getSignedExec();
     else
-        out << src.getName() << " form it is not signed, form sign grade "
+        out << src.getName() << " z
         << src.getSignedGrade() << ", form execution grade " << src.getSignedExec();
     return (out);
 }
